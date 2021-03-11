@@ -1,1 +1,13 @@
-<p>buscar works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card-columns mt-5">
+                <app-card [blogger]="blogger" [index]="blogger.idx" *ngFor="let blogger of bloggers; let i=index"></app-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1 *ngIf="vacioObjeto()">
+    Sin resultados
+</h1>

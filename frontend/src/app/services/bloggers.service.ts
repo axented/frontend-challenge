@@ -39,6 +39,24 @@ export class BloggersService {
         return this.DataBloggers;
     }
 
+    buscarBloggers( termino:string ){        
+        let bloggerArr : BloggerModel[] = [];
+        termino = termino.toLowerCase();
+    
+        for(let i = 0 ; i < this.DataBloggers.length ; i++){
+    
+            let blogger = this.DataBloggers[i];
+            let nombre  = blogger.name.toLowerCase();
+    
+            if( nombre.indexOf(termino) >= 0){
+                blogger.idx = i;
+                bloggerArr.push( blogger );
+            }
+        }      
+        
+        return bloggerArr;
+    }
+
 }
 
 

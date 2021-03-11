@@ -1,23 +1,25 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-    <a class="navbar-brand"><i class="fas fa-users"></i> Bloggers</a>
+    <a class="navbar-brand" routerLinkActive="active" [routerLink]="['/list']"><i class="fas fa-users"></i> Bloggers</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+
         <div class="navbar-nav mr-2">
-            <a class="nav-link">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/profile']">
                 <i class="fas fa-user"></i> Mi perfil</a>
 
-            <a class="nav-link">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/register']">
                 <i class="fas fa-user-plus"></i> Registrar</a>
-
         </div>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+
+        <form class="form-inline my-2 my-lg-0" (keydown.enter)="$event.preventDefault()">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (keyup.enter)="buscarBlogger(buscarTexto.value)" #buscarTexto>
+            <button class="btn btn btn-outline-light my-2 my-sm-0" type="submit" (click)="buscarBlogger(buscarTexto.value)">Search</button>
         </form>
+
     </div>
 
 </nav>
