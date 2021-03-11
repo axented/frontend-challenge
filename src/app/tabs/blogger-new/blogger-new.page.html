@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agregar un nuevo blogger</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="AddBloggerForm">
+
+
+  <ion-item>
+    <ion-icon slot="start" name="person-outline"></ion-icon>
+    <ion-label position="floating">Name</ion-label>
+    <ion-input formControlName="Name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon slot="start" name="mail-outline"></ion-icon>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input formControlName="Email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon slot="start" name="planet-outline"></ion-icon>
+    <ion-label position="floating">WebSite</ion-label>
+    <ion-input formControlName="Website"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon slot="start" name="image-outline"></ion-icon>
+    <ion-label position="floating">Picture</ion-label>
+    <ion-input formControlName="Picture"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="saveBlogger()"> 
+    Guardar
+  </ion-button>
+
+  </form>
+
+</ion-content>

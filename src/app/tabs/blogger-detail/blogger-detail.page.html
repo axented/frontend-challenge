@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>blogger-detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card >
+    <img [src]="blogger?.Picture" />
+    <ion-card-header>
+      <ion-card-subtitle>{{blogger?.Email}}</ion-card-subtitle>
+      <ion-card-title>{{blogger?.Name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{blogger?.Website}}
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
