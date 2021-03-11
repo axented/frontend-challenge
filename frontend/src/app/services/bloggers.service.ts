@@ -56,6 +56,28 @@ export class BloggersService {
         
         return bloggerArr;
     }
+    
+    getBlogger( idx:number ){
+        return this.DataBloggers[idx];
+    }
+
+    getFriends( idFriends:string[] ){
+        let friendsBlogger : BloggerModel[] = [];
+
+            for (let indexBuscar = 0; indexBuscar < idFriends.length; indexBuscar++) {
+                for (let indexBlogger = 0; indexBlogger < this.DataBloggers.length; indexBlogger++) {
+                    
+                    let idFriend        = idFriends[indexBuscar];
+                    let idJsonBloggers  = this.DataBloggers[indexBlogger];
+
+                    if( idFriend == idJsonBloggers.id ){
+                        friendsBlogger.push( idJsonBloggers );
+                    }
+                }
+            }
+
+        return friendsBlogger;
+    }
 
 }
 

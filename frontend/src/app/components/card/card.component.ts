@@ -1,4 +1,6 @@
 import { Component, OnInit,Input,Output } from '@angular/core';
+/*Router-------------------------------*/
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-card',
@@ -11,9 +13,13 @@ export class CardComponent implements OnInit {
     @Input() blogger:  any = {};
     @Input() index:    number;
 
-    constructor() { }
+    constructor( private router:Router ) { }
 
     ngOnInit(): void {
+    }
+    
+    verBlogger(){
+        this.router.navigate(['/profile',this.index]);        
     }
 
 }
