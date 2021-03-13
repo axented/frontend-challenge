@@ -3,24 +3,25 @@ import { Component, OnInit } from '@angular/core';
 import { BloggerModel, BloggersService } from '../../services/bloggers.service';
 
 @Component({
-    selector: 'app-bloggers',
-    templateUrl: './bloggers.component.html',
-    styleUrls: ['./bloggers.component.css']
+    selector:     'app-bloggers',
+    templateUrl:  './bloggers.component.html',
+    styleUrls:    ['./bloggers.component.css']
 })
 
 export class BloggersComponent implements OnInit {
 
     bloggers               : BloggerModel[] = [];
-    listFriendsAuthUser    : string[]=[];
+    listFriendsAuthUser    : string[] = [];
 
     constructor( private _bloggersService : BloggersService ) { }
 
     ngOnInit(): void {
         this.bloggers = this._bloggersService.getBloggers();
-        this.listFriendsAuthUser = this._bloggersService.getArrayFriendsUserAuth('0');
+        let idUserAuth = localStorage.getItem('idUser')+'';
+        this.listFriendsAuthUser = this._bloggersService.getArrayFriendsUserAuth(idUserAuth);
     }
 
-    isFriend(idBlogger:string){
+    isFriend( idBlogger:string ){
 
         for (let index = 0; index < this.listFriendsAuthUser.length; index++) {
             if( this.listFriendsAuthUser[index] == idBlogger ){

@@ -5,9 +5,9 @@ import { Router } from '@angular/router';
 import { BloggersService, BloggerModel } from '../../services/bloggers.service';
 
 @Component({
-    selector: 'app-card',
-    templateUrl: './card.component.html',
-    styleUrls: ['./card.component.css']
+    selector:     'app-card',
+    templateUrl:  './card.component.html',
+    styleUrls:    ['./card.component.css']
 })
 
 export class CardComponent implements OnInit {
@@ -22,15 +22,15 @@ export class CardComponent implements OnInit {
     ngOnInit(): void {
     }
     
-    verBlogger(){
+    seeBlogger(){
         this.router.navigate(['/profile',this.index]);        
     }
 
-    agregarFriend(id:string){
+    addFriend( id:string ){
         this._bloggersServices.addFriend(id);
     }
 
-    eliminarFriend(id:string){
+    deleteFriend( id:string ){
         this._bloggersServices.deleteFriend(id);
     }
 

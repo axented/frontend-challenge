@@ -6,15 +6,14 @@ import { Router } from '@angular/router';
 import { BloggersService } from '../../services/bloggers.service';
 
 @Component({
-    selector: 'app-buscar',
-    templateUrl: './buscar.component.html',
-    styleUrls: ['./buscar.component.css']
+    selector:     'app-buscar',
+    templateUrl:  './buscar.component.html',
+    styleUrls:    ['./buscar.component.css']
 })
 
 export class BuscarComponent implements OnInit {
 
-    bloggers               : any       = {} ;
-    searchTearm            : string    = '' ;
+    bloggers               : any       = {} ;    
     listFriendsAuthUser    : string[]  = [] ;
 
     constructor(private activatedRoute : ActivatedRoute,
@@ -22,10 +21,10 @@ export class BuscarComponent implements OnInit {
                 private router : Router) {}
 
     ngOnInit(): void {
-        this.activatedRoute.params.subscribe( params => {
-            this.searchTearm  = params['search'];
+        this.activatedRoute.params.subscribe( params => {            
             this.bloggers = this._bloggersService.searchBloggers( params['search'] );
-            this.listFriendsAuthUser = this._bloggersService.getArrayFriendsUserAuth('0');
+            let idUserAuth = localStorage.getItem('idUser')+'';
+            this.listFriendsAuthUser = this._bloggersService.getArrayFriendsUserAuth(idUserAuth);
         });
     }
     
