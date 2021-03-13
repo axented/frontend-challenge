@@ -12,6 +12,7 @@ import { CardComponent } from './components/card/card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
+import { LostimagePipe } from './pipes/lostimage.pipe';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { RegisterComponent } from './components/register/register.component';
         CardComponent,
         NavbarComponent,
         ProfileComponent,
-        RegisterComponent
+        RegisterComponent,
+        LostimagePipe
     ],
     imports: [
         BrowserModule,
