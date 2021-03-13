@@ -34,4 +34,9 @@ export class CardComponent implements OnInit {
         this._bloggersServices.deleteFriend(id);
     }
 
+    isMyProfile( id:string ){
+        let idUserAuth = localStorage.getItem('idUser')+'';
+        return idUserAuth == id ? true : false;
+    }
+
 }
