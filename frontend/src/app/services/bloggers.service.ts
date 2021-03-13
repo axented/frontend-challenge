@@ -8,28 +8,77 @@ export class BloggersService {
     private DataBloggers : BloggerModel[]=
     [
         {
-            id:             "1",
-            name:           "Juan Perez",
-            website:        "juanperez.io",
-            picture_url:    "https://placekitten.com/200/300",
-            email:          "conact@juanperez.io",
-            friends:        []
+            id: "0",//Simulacion de usuario Logueado
+            name: "Luis Juarez",
+            website: "luisjuares.io",
+            picture_url: "https://img.freepik.com/foto-gratis/hombre-guapo-caucasico-aislado-pared-beige-dando-gesto-pulgares-arriba_1368-92335.jpg?size=626&ext=jpg",
+            email: "conact@luisjuares.io",
+            friends: ["3","4"]
+        },{
+            id: "1",
+            name: "Juan Perez",
+            website: "juanperez.io",
+            picture_url: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/camiseta-blanca-hombre-getty-1553624255.jpg?crop=0.6666666666666666xw:1xh;center,top&resize=640:*",
+            email: "conact@juanperez.io",
+            friends: []
         },
         {
-            id:             "2",
-            name:           "Amano Pikamee",
-            website:        "pikamee.io",
-            picture_url:    "https://placekitten.com/200/300",
-            email:          "contact@pikamee.io",
-            friends:        ["1"]
+            id: "2",
+            name: "Amano Pikamee",
+            website: "pikamee.io",
+            picture_url: "https://i.redd.it/7w0pycn2ib451.jpg",
+            email: "contact@pikamee.io",
+            friends: ["1"]
         },
-        {
-            id:             "3",
-            name:           "Tony Stark",
-            website:        "tonystark.io",
-            picture_url:    "https://placekitten.com/200/300",
-            email:          "contact@tonystark.io",
-            friends:        ["1", "2"]
+        {            
+            id: "3",
+            name: "Tony Stark",
+            website: "tonystark.io",
+            picture_url: "https://images.clarin.com/1969/12/31/robert-downey-jr-ejercio-los___H1xylv8RXg_1256x620__1.jpg",
+            email: "contact@tonystark.io",
+            friends: ["1", "2"]
+        },{
+            id: "4",
+            name: "Ibai",
+            website: "ibai.io",
+            picture_url: "https://media.vozpopuli.com/2021/02/Ibai-Llanos-mundo-habla-ahora_1369373105_15343944_1200x675.jpg",
+            email: "contact@ibai.io",
+            friends: ["7", "8","9","2","0"]
+        },{
+            id: "5",
+            name: "Wanda maximoff",
+            website: "wanda.io",
+            picture_url: "http://pm1.narvii.com/6601/43be66544ff4327187cc626851c134cedd58f96f_00.jpg",
+            email: "contact@wanda.io",
+            friends: ["9", "2","3","4"]
+        },{
+            id: "6",
+            name: "Sara",
+            website: "bjean.io",
+            picture_url: "https://img.wattpad.com/cover/241150647-288-k206830.jpg",
+            email: "contact@bjean.io",
+            friends: ["4", "3","2"]
+        },{
+            id: "7",
+            name: "Steve",
+            website: "steve.io",
+            picture_url: "https://sm.ign.com/ign_es/screenshot/default/chris-evans-capitan-america-4514_huvv.jpg",
+            email: "contact@steve.io",
+            friends: ["3", "8","9"]
+        },{
+            id: "8",
+            name: "Violetta",
+            website: "violetta.io",
+            picture_url: "https://i.pinimg.com/originals/33/3a/7c/333a7c35fab65765537627702f0098e9.jpg",
+            email: "contact@violetta.io",
+            friends: ["1", "4"]
+        },{
+            id: "9",
+            name: "Daniel",
+            website: "daniel.io",
+            picture_url: "",
+            email: "contact@daniel.io",
+            friends: ["5", "8"]
         }
     ];
 
@@ -37,24 +86,6 @@ export class BloggersService {
 
     getBloggers() : BloggerModel[] {
         return this.DataBloggers;
-    }
-
-    buscarBloggers( termino:string ){        
-        let bloggerArr : BloggerModel[] = [];
-        termino = termino.toLowerCase();
-    
-        for(let i = 0 ; i < this.DataBloggers.length ; i++){
-    
-            let blogger = this.DataBloggers[i];
-            let nombre  = blogger.name.toLowerCase();
-    
-            if( nombre.indexOf(termino) >= 0){
-                blogger.idx = i;
-                bloggerArr.push( blogger );
-            }
-        }      
-        
-        return bloggerArr;
     }
     
     getBlogger( idx:number ){
@@ -79,6 +110,24 @@ export class BloggersService {
         return friendsBlogger;
     }
 
+    buscarBloggers( termino:string ){        
+        let bloggerArr : BloggerModel[] = [];
+        termino = termino.toLowerCase();
+    
+        for(let i = 0 ; i < this.DataBloggers.length ; i++){
+    
+            let blogger = this.DataBloggers[i];
+            let nombre  = blogger.name.toLowerCase();
+    
+            if( nombre.indexOf(termino) >= 0){
+                blogger.idx = i;
+                bloggerArr.push( blogger );
+            }
+        }      
+        
+        return bloggerArr;
+    }
+    
     pushBlogger(datosNewUser:BloggerModel){        
         datosNewUser.id=this.DataBloggers.length - 1 + '';
         let datosuser=datosNewUser;
