@@ -17,14 +17,15 @@ export class BloggersComponent implements OnInit {
 
     ngOnInit(): void {
         this.bloggers = this._bloggersService.getBloggers();
-        this.listFriendsAuthUser=this._bloggersService.getArrayFriendsUserAuth('0');
+        this.listFriendsAuthUser = this._bloggersService.getArrayFriendsUserAuth('0');
     }
+
     isFriend(idBlogger:string){
 
-        for (let index = 0; index < this.listFriendsAuthUser.length; index++) {        
+        for (let index = 0; index < this.listFriendsAuthUser.length; index++) {
             if( this.listFriendsAuthUser[index] == idBlogger ){
                 return true;
-            }        
+            }
         }
 
         return false;

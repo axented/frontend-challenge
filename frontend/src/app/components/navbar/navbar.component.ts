@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
 
 export class NavbarComponent implements OnInit {
 
-    idPerfilUser : string='';
+    idPerfilUser : string = '';
 
-    constructor(private router:Router) {
+    constructor(private router : Router) {
         localStorage.setItem('idUser','0');
         this.Miperfil();
     }

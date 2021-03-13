@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
     providedIn: 'root'
 })
+
 export class BloggersService {
 
     private DataBloggers : BloggerModel[]=
@@ -30,7 +31,7 @@ export class BloggersService {
             email: "contact@pikamee.io",
             friends: ["1"]
         },
-        {            
+        {
             id: "3",
             name: "Tony Stark",
             website: "tonystark.io",
@@ -110,13 +111,13 @@ export class BloggersService {
         return friendsBlogger;
     }
     
-    getArrayFriendsUserAuth(ids:string){
-        let arrayFriendsAuth:string[]=[];
-        let idFriend:string[]=[];
+    getArrayFriendsUserAuth( ids:string ){
+        let arrayFriendsAuth    :string[] = [];
+        let idFriend            :string[] = [];
 
-        for (let index = 0; index < this.DataBloggers.length; index++) {            
+        for (let index = 0; index < this.DataBloggers.length; index++) {
             if( ids == this.DataBloggers[index].id){
-                return this.DataBloggers[index].friends;                
+                return this.DataBloggers[index].friends;
             }
         }
         return [];
@@ -137,7 +138,7 @@ export class BloggersService {
             }else{
                 let website = blogger.website.toLowerCase();
 
-                if (website.indexOf(termino) >= 0) {
+                if ( website.indexOf(termino) >= 0 ) {
                     blogger.idx = i;
                     bloggerArr.push( blogger );
                 }
@@ -147,17 +148,18 @@ export class BloggersService {
         return bloggerArr;
     }
     
-    pushBlogger(datosNewUser:BloggerModel){        
-        datosNewUser.id=this.DataBloggers.length - 1 + '';
-        let datosuser=datosNewUser;
-        this.DataBloggers.push(datosuser);        
+    pushBlogger( datosNewUser:BloggerModel ){
+        datosNewUser.id    = this.DataBloggers.length - 1 + '';
+        let datosuser      = datosNewUser;
+
+        this.DataBloggers.push(datosuser);
     }
 
-    addFriend(id:string){
-        this.DataBloggers[Number(localStorage.getItem('idUser'))].friends.push(id);        
+    addFriend( id:string ){
+        this.DataBloggers[Number(localStorage.getItem('idUser'))].friends.push(id);
     }
 
-    deleteFriend(id:string){        
+    deleteFriend( id:string ){
         let posicion = this.DataBloggers[Number(localStorage.getItem('idUser'))].friends.indexOf(id);
         this.DataBloggers[Number(localStorage.getItem('idUser'))].friends.splice(posicion,1);
     }

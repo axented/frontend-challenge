@@ -16,8 +16,8 @@ export class CardComponent implements OnInit {
     @Input() index         : number  = 0;
     @Input() friend        : boolean;
 
-    constructor(    private router:Router ,
-                    private _bloggersServices:BloggersService) { }
+    constructor(    private router : Router ,
+                    private _bloggersServices : BloggersService) { }
 
     ngOnInit(): void {
     }

@@ -12,11 +12,11 @@ import { BloggersService } from '../../services/bloggers.service';
 
 export class ProfileComponent implements OnInit {
 
-    blogger:any={};
-    friends:any={};
+    blogger    : any = {};
+    friends    : any = {};
     
-    constructor(    private activatedRoute: ActivatedRoute,
-                    private _bloggersServices:BloggersService) {
+    constructor(    private activatedRoute : ActivatedRoute,
+                    private _bloggersServices : BloggersService) {
         this.activatedRoute.params.subscribe( params => {
         this.blogger    = this._bloggersServices.getBlogger( params['id'] );
         this.friends    = this._bloggersServices.getFriends( this.blogger.friends );
@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit {
     }
 
     showListFriends(){
-        return Object.entries(this.friends).length === 0 ;
+        return Object.entries( this.friends ).length === 0 ;
     }
 
 }
