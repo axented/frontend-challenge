@@ -10,12 +10,21 @@ import { Router } from '@angular/router';
 
 export class NavbarComponent implements OnInit {
 
-    constructor(private router:Router) { }
+    idPerfilUser : string='';
+
+    constructor(private router:Router) {
+        localStorage.setItem('idUser','0');
+        this.Miperfil();
+    }
 
     ngOnInit(): void {
     }
 
     buscarBlogger(termino:string){    
         this.router.navigate(['/buscar',termino]);
+    }
+    
+    Miperfil(){
+        this.idPerfilUser=localStorage.getItem('idUser')+'';
     }
 }
