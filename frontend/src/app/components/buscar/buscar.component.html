@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12">
             <div class="card-columns mt-5">
-                <app-card [blogger]="blogger" [index]="blogger.idx" *ngFor="let blogger of bloggers; let i=index"></app-card>
+                <app-card [blogger]="blogger" [index]="blogger.idx" *ngFor="let blogger of bloggers; let i=index" [friend]="isFriend(blogger.id)"></app-card>
             </div>
         </div>
     </div>
