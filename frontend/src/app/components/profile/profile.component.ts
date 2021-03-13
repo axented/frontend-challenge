@@ -15,16 +15,19 @@ export class ProfileComponent implements OnInit {
     blogger:any={};
     friends:any={};
     
-    constructor(private activatedRoute: ActivatedRoute,
-      private _bloggersServices:BloggersService) {
-        this.activatedRoute.params.subscribe( params => {        
+    constructor(    private activatedRoute: ActivatedRoute,
+                    private _bloggersServices:BloggersService) {
+        this.activatedRoute.params.subscribe( params => {
         this.blogger    = this._bloggersServices.getBlogger( params['id'] );
         this.friends    = this._bloggersServices.getFriends( this.blogger.friends );
         });
-      }
+    }
   
-    ngOnInit(): void {
-    
+    ngOnInit(): void {    
+    }
+
+    showListFriends(){
+        return Object.entries(this.friends).length === 0 ;
     }
 
 }

@@ -7,13 +7,18 @@
         </div>
 
         <div class="col-8">
-            <h1 class="display-4">{{blogger.name}}</h1>
-            <p class="h5">{{blogger.website}}</p>
-            <p class="h5">{{blogger.email}}</p>
+            <h2 class="display-4">Profile</h2>
+            <h3>Name: <small class="text-muted">{{blogger.name | uppercase}}</small></h3>
+            <h3>Web site: <small class="text-muted">{{blogger.website | uppercase}}</small></h3>
+            <h3>Email: <small class="text-muted">{{blogger.email | uppercase}}</small></h3>
         </div>
 
     </div>
 
+</div>
+
+<div class="container mt-5 mb-5" *ngIf="!showListFriends()">
+    <h4 class="text-center">Friends</h4>
 </div>
 
 <div class="container mt-2">
@@ -28,13 +33,12 @@
             <div class="col-md-11">
 
                 <div class="card-body">
-                    <h5 class="card-title">{{friend.name}}</h5>
-                    <p class="card-text">{{friend.website}}</p>
+                    <h4>Name: <small class="text-muted">{{ friend.name | uppercase}}</small></h4>
+                    <h4>Web site: <small class="text-muted">{{friend.website | uppercase}}</small></h4>
                 </div>
 
                 <div class="card-body text-right">
-                    <a href="#" class="card-link"><i class="fas fa-eye"></i> Card link</a>
-                    <a href="#" class="card-link"><i class="fas fa-user-minus"></i> Another link</a>
+                    <a [routerLink]="['/profile',friend.id]" href="#" class="card-link"><i class="fas fa-eye"></i> Profile</a>
                 </div>
 
             </div>
@@ -42,4 +46,8 @@
         </div>
     </div>
 
+</div>
+
+<div class="container" *ngIf="showListFriends()">
+    <h4 class="text-center">No friends added</h4>
 </div>
