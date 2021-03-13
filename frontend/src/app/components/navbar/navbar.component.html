@@ -9,15 +9,15 @@
 
         <div class="navbar-nav mr-2">
             <a class="nav-link" routerLinkActive="active" [routerLink]="['/profile', idPerfilUser ]">
-                <i class="fas fa-user"></i> Mi perfil</a>
+                <i class="fas fa-user"></i> My profile</a>
 
             <a class="nav-link" routerLinkActive="active" [routerLink]="['/register']">
-                <i class="fas fa-user-plus"></i> Registrar</a>
+                <i class="fas fa-user-plus"></i> Register</a>
         </div>
 
         <form class="form-inline my-2 my-lg-0" (keydown.enter)="$event.preventDefault()">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (keyup.enter)="buscarBlogger(buscarTexto.value)" #buscarTexto>
-            <button class="btn btn btn-outline-light my-2 my-sm-0" type="submit" (click)="buscarBlogger(buscarTexto.value)">Search</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (keyup.enter)="searchBlogger(searchText.value)" #searchText>
+            <button class="btn btn btn-outline-light my-2 my-sm-0" type="submit" (click)="searchBlogger(searchText.value)">Search</button>
         </form>
 
     </div>

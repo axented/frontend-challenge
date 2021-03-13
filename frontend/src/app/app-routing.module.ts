@@ -11,7 +11,7 @@ const routes: Routes = [
     { path: 'list',               component: BloggersComponent },
     /*Params-----------------------------------------------------*/
     { path: 'profile/:id',        component: ProfileComponent },
-    { path: 'buscar/:buscarpor',  component: BuscarComponent },
+    { path: 'search/:search',  component: BuscarComponent },
     /*Exception--------------------------------------------------*/
     { path: '**', pathMatch: 'full', redirectTo: 'list' }
 ];

@@ -14,7 +14,7 @@ import { BloggersService } from '../../services/bloggers.service';
 export class BuscarComponent implements OnInit {
 
     bloggers               : any       = {} ;
-    termino                : string    = '' ;
+    searchTearm            : string    = '' ;
     listFriendsAuthUser    : string[]  = [] ;
 
     constructor(private activatedRoute : ActivatedRoute,
@@ -23,8 +23,8 @@ export class BuscarComponent implements OnInit {
 
     ngOnInit(): void {
         this.activatedRoute.params.subscribe( params => {
-            this.termino  = params['buscarpor'];
-            this.bloggers = this._bloggersService.buscarBloggers( params['buscarpor'] );
+            this.searchTearm  = params['search'];
+            this.bloggers = this._bloggersService.searchBloggers( params['search'] );
             this.listFriendsAuthUser = this._bloggersService.getArrayFriendsUserAuth('0');
         });
     }
@@ -40,7 +40,7 @@ export class BuscarComponent implements OnInit {
         return false;
     }
     
-    vacioObjeto(){
+    emptyObject(){
         if( Object.entries( this.bloggers ).length === 0 ){
             return true;
         }else{

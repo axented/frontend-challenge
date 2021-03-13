@@ -14,17 +14,17 @@ export class NavbarComponent implements OnInit {
 
     constructor(private router : Router) {
         localStorage.setItem('idUser','0');
-        this.Miperfil();
+        this.myProfile();
     }
 
     ngOnInit(): void {
     }
 
-    buscarBlogger(termino:string){    
-        this.router.navigate(['/buscar',termino]);
+    searchBlogger(searchText:string){    
+        this.router.navigate(['/search',searchText]);
     }
     
-    Miperfil(){
+    myProfile(){
         this.idPerfilUser=localStorage.getItem('idUser')+'';
     }
 }

@@ -2,30 +2,30 @@
     <div class="row">
         <div class="col-12">
 
-            <form autocomplete="off" [formGroup]="formulario" (ngSubmit)="guardar()">
+            <form autocomplete="off" [formGroup]="formulario" (ngSubmit)="save()">
 
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" class="form-control" formControlName="name" [class.is-invalid]="NameNoValido">
-                    <small class="form-text text-muted" *ngIf="NameNoValido">Enter a name, minimum 5 characters.</small>
+                    <input type="text" class="form-control" formControlName="name" [class.is-invalid]="NameInvalid">
+                    <small class="form-text text-muted" *ngIf="NameInvalid">Enter a name, minimum 5 characters.</small>
                 </div>
 
                 <div class="form-group">
                     <label>Web site</label>
-                    <input type="text" class="form-control" formControlName="website" [class.is-invalid]="WebsiteNoValido">
-                    <small class="form-text text-muted" *ngIf="WebsiteNoValido">Enter a web site, minimum 5 characters.</small>
+                    <input type="text" class="form-control" formControlName="website" [class.is-invalid]="WebsiteInvalid">
+                    <small class="form-text text-muted" *ngIf="WebsiteInvalid">Enter a web site, minimum 5 characters.</small>
                 </div>
 
                 <div class="form-group">
                     <label>Picture URL</label>
-                    <input type="text" class="form-control" formControlName="picture_url" [class.is-invalid]="PictureNoValido">
-                    <small class="form-text text-muted" *ngIf="PictureNoValido">Enter a url of an image, minimum 5 characters.</small>
+                    <input type="text" class="form-control" formControlName="picture_url" [class.is-invalid]="PictureInvalid">
+                    <small class="form-text text-muted" *ngIf="PictureInvalid">Enter a url of an image, minimum 5 characters.</small>
                 </div>
 
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" class="form-control" formControlName="email" [class.is-invalid]="EmailNoValido">
-                    <small class="form-text text-muted" *ngIf="EmailNoValido">Enter an email, minimum 5 characters</small>
+                    <input type="text" class="form-control" formControlName="email" [class.is-invalid]="EmailInvalid">
+                    <small class="form-text text-muted" *ngIf="EmailInvalid">Enter an email, minimum 5 characters</small>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Register</button>

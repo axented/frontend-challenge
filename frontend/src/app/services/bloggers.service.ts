@@ -123,34 +123,34 @@ export class BloggersService {
         return [];
     }
 
-    buscarBloggers( termino:string ){        
-        let bloggerArr : BloggerModel[] = [];
-        termino = termino.toLowerCase();
+    searchBloggers( search:string ){        
+        let bloggerArray : BloggerModel[] = [];
+        search = search.toLowerCase();
     
         for(let i = 0 ; i < this.DataBloggers.length ; i++){
     
             let blogger = this.DataBloggers[i];
-            let nombre  = blogger.name.toLowerCase();
+            let name  = blogger.name.toLowerCase();
     
-            if( nombre.indexOf(termino) >= 0){
+            if( name.indexOf(search) >= 0){
                 blogger.idx = i;
-                bloggerArr.push( blogger );
+                bloggerArray.push( blogger );
             }else{
                 let website = blogger.website.toLowerCase();
 
-                if ( website.indexOf(termino) >= 0 ) {
+                if ( website.indexOf(search) >= 0 ) {
                     blogger.idx = i;
-                    bloggerArr.push( blogger );
+                    bloggerArray.push( blogger );
                 }
             }
         }      
         
-        return bloggerArr;
+        return bloggerArray;
     }
     
-    pushBlogger( datosNewUser:BloggerModel ){
-        datosNewUser.id    = this.DataBloggers.length - 1 + '';
-        let datosuser      = datosNewUser;
+    pushBlogger( dataNewUser:BloggerModel ){
+        dataNewUser.id     = this.DataBloggers.length - 1 + '';
+        let datosuser      = dataNewUser;
 
         this.DataBloggers.push(datosuser);
     }
