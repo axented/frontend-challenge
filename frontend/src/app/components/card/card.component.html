@@ -3,8 +3,8 @@
     <img [src]="blogger.picture_url | lostimage" class="card-img-top" [alt]="blogger.name">
 
     <div class="card-body">
-        <h5 class="card-title">Name: {{blogger.name}}</h5>
-        <p class="card-text">WebSite: {{blogger.website}}</p>
+        <h5 class="card-title">Name: {{blogger.name | uppercase}}</h5>
+        <p class="card-text">WebSite: {{blogger.website | uppercase}}</p>
     </div>
 
     <div class="card-footer text-right">

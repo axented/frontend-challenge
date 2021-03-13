@@ -134,6 +134,13 @@ export class BloggersService {
             if( nombre.indexOf(termino) >= 0){
                 blogger.idx = i;
                 bloggerArr.push( blogger );
+            }else{
+                let website = blogger.website.toLowerCase();
+
+                if (website.indexOf(termino) >= 0) {
+                    blogger.idx = i;
+                    bloggerArr.push( blogger );
+                }
             }
         }      
         
