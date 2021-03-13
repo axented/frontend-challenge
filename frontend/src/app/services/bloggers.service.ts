@@ -79,6 +79,12 @@ export class BloggersService {
         return friendsBlogger;
     }
 
+    pushBlogger(datosNewUser:BloggerModel){        
+        datosNewUser.id=this.DataBloggers.length - 1 + '';
+        let datosuser=datosNewUser;
+        this.DataBloggers.push(datosuser);        
+    }
+
 }
 
 

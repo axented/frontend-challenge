@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class CardComponent implements OnInit {
 
     @Input() blogger:  any = {};
-    @Input() index:    number;
+    @Input() index:    number=0;
 
     constructor( private router:Router ) { }
 
