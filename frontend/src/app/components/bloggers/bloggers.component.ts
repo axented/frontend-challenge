@@ -22,9 +22,9 @@ export class BloggersComponent implements OnInit {
     isFriend(idBlogger:string){
 
         for (let index = 0; index < this.listFriendsAuthUser.length; index++) {        
-          if( this.listFriendsAuthUser[index] == idBlogger ){
-            return true;
-          }        
+            if( this.listFriendsAuthUser[index] == idBlogger ){
+                return true;
+            }        
         }
 
         return false;

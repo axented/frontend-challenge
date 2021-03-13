@@ -146,6 +146,15 @@ export class BloggersService {
         this.DataBloggers.push(datosuser);        
     }
 
+    addFriend(id:string){
+        this.DataBloggers[Number(localStorage.getItem('idUser'))].friends.push(id);        
+    }
+
+    deleteFriend(id:string){        
+        let posicion = this.DataBloggers[Number(localStorage.getItem('idUser'))].friends.indexOf(id);
+        this.DataBloggers[Number(localStorage.getItem('idUser'))].friends.splice(posicion,1);
+    }
+
 }
 
 
