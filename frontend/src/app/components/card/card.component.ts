@@ -10,8 +10,9 @@ import { Router } from '@angular/router';
 
 export class CardComponent implements OnInit {
 
-    @Input() blogger:  any = {};
-    @Input() index:    number=0;
+    @Input() blogger       : any     = {};
+    @Input() index         : number  = 0;
+    @Input() friend        : boolean;
 
     constructor( private router:Router ) { }
 

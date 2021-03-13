@@ -109,6 +109,18 @@ export class BloggersService {
 
         return friendsBlogger;
     }
+    
+    getArrayFriendsUserAuth(ids:string){
+        let arrayFriendsAuth:string[]=[];
+        let idFriend:string[]=[];
+
+        for (let index = 0; index < this.DataBloggers.length; index++) {            
+            if( ids == this.DataBloggers[index].id){
+                return this.DataBloggers[index].friends;                
+            }
+        }
+        return [];
+    }
 
     buscarBloggers( termino:string ){        
         let bloggerArr : BloggerModel[] = [];
