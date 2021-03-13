@@ -3,7 +3,7 @@
     <div class="row">
 
         <div class="col-4">
-            <img [src]="blogger.picture_url" class="img-fluid" [alt]="blogger.name">
+            <img [src]="blogger.picture_url | lostimage" class="img-fluid" [alt]="blogger.name">
         </div>
 
         <div class="col-8">
@@ -27,7 +27,7 @@
         <div class="row no-gutters">
 
             <div class="col-md-1  align-self-center">
-                <img [src]="friend.picture_url" class="rounded-circle" [alt]="friend.name" style="width: 75px; height: 75px;">
+                <img [src]="friend.picture_url | lostimage" class="rounded-circle" [alt]="friend.name" style="width: 75px; height: 75px;">
             </div>
 
             <div class="col-md-11">

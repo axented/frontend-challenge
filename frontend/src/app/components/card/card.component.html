@@ -1,6 +1,6 @@
 <div class="card">
 
-    <img [src]="blogger.picture_url" class="card-img-top" [alt]="blogger.name">
+    <img [src]="blogger.picture_url | lostimage" class="card-img-top" [alt]="blogger.name">
 
     <div class="card-body">
         <h5 class="card-title">Name: {{blogger.name}}</h5>
