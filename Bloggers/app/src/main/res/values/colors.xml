@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#9575CD</color>
+    <color name="colorPrimaryPressed">#BD9FF3</color>
+    <color name="colorPrimaryDark">#7C5BB5</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="bg_screen">#F4F5FA</color>
+    <color name="white">#FFFFFF</color>
+    <color name="btn_normal">#23233C</color>
+    <color name="btn_pressed">#4A4AA1</color>
+    <color name="link">#1F1F40</color>
+
+
+
+    <color name="blue">#348af7</color>
+
+    <color name="temperature_background">@color/blue</color>
+
+</resources>

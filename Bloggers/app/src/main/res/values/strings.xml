@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Bloggers</string>
+    <string name="title_activity_main_content">MainActivity</string>
+    <string name="txt_categorias">Categorias</string>
+    <string name="txt_mis_favs">Mis Favoritos</string>
+
+    <!-- slides -->
+    <string name="txt_next">Next</string>
+    <string name="txt_done">Done</string>
+    <string name="title_slide_one">The best bloggers in the world</string>
+    <string name="title_slide_two">Blogger power list!</string>
+    <string name="title_slide_three">Save and manage your favorite bloggers!</string>
+    <string name="nuevo">Nuevo</string>
+
+</resources>

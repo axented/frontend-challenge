@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_categories"
+        android:icon="@drawable/ic_food_fork_drink"
+        android:title="@string/txt_categorias" />
+
+    <item
+        android:id="@+id/navigation_favorites"
+        android:icon="@drawable/ic_account_heart"
+        android:title="@string/txt_mis_favs" />
+
+</menu>
