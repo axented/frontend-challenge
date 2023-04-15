@@ -1,0 +1,127 @@
+{
+  "motorcycles": [
+    {
+      "id": 1,
+      "trademark": "Honda",
+      "model": "2020",
+      "reference": "CB-650-R",
+      "price": 5700000,
+      "image": "https://a5i4f6g5.stackpathcdn.com/images/cms/Gris-48571.png"
+    },
+    {
+      "id": 2,
+      "trademark": "Yamaha",
+      "model": "2020",
+      "reference": "Bws X Fi",
+      "price": "5000000",
+      "image": "https://yamaha-mundoyamaha.com/wp-content/uploads/2020/07/BwsxFi_color_naranja-v2.png"
+    },
+    {
+      "id": 3,
+      "trademark": "Suzuki",
+      "model": "2021",
+      "reference": "ACCESS 125 FI",
+      "price": 4200000,
+      "image": "https://suzuki.com.co/sites/default/files/2020-12/ROJOMATE.png"
+    },
+    {
+      "trademark": "Suzuki",
+      "model": "2021",
+      "reference": "NEW BEST 125 FI",
+      "price": "5000",
+      "image": "https://suzuki.com.co/sites/default/files/2021-03/SUZUKI%20NEW%20BEST%20125%20NEGRA-min.png",
+      "id": 4
+    },
+    {
+      "trademark": "HONDA",
+      "model": "2021",
+      "reference": "NEW GIXXER 150 ABS",
+      "price": "8500000",
+      "image": "https://suzuki.com.co/sites/default/files/2021-05/NEW-GIXXER-150-FI-ABS-NEGRA.png",
+      "id": 6
+    },
+    {
+      "trademark": "SUZUKI",
+      "model": "2312saff",
+      "reference": "14214fdsf",
+      "price": "589655",
+      "image": "https://cdn1.coppel.com/images/catalog/pm/5423623-1.jpg",
+      "id": 7
+    }
+  ],
+  "marcas": [
+    {
+      "value": "YAMAHA",
+      "label": "YAMAHA"
+    },
+    {
+      "value": "SUZUKI",
+      "label": "SUZUKI"
+    },
+    {
+      "value": "HONDA",
+      "label": "HONDA"
+    }
+  ],
+  "bloggers": [
+    {
+      "modalTitle": "Edit Blogger",
+      "id": "1",
+      "name": "Maria de la cruz",
+      "website": "www.uanperez.io",
+      "picture_url": "https://img.freepik.com/foto-gratis/retrato-joven-rubio-mujer_273609-12060.jpg",
+      "email": "conact@juanperez.io",
+      "friends": []
+    },
+    {
+      "modalTitle": "Edit Blogger",
+      "id": "2",
+      "name": "Amano Pikamee erer",
+      "website": "pikamee.io",
+      "picture_url": "https://placekitten.com/200/300",
+      "email": "contact@pikamee.io",
+      "friends": [
+        "1"
+      ]
+    },
+    {
+      "modalTitle": "Edit Blogger",
+      "id": "3",
+      "name": "Tony Stark",
+      "website": "tonystark.io",
+      "picture_url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Robert_Downey%2C_Jr._2012.jpg",
+      "email": "contact@tonystark.io",
+      "friends": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "modalTitle": "Add Blogger",
+      "id": "omUcnB8",
+      "name": "ttt",
+      "website": "ttt",
+      "picture_url": "https://images.pexels.com/photos/4519122/pexels-photo-4519122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "email": "asdasd",
+      "friends": []
+    },
+    {
+      "modalTitle": "Add Blogger",
+      "id": "-NOVfMT",
+      "name": "Juan Simon",
+      "website": "asdasd.com",
+      "picture_url": "https://media.npr.org/assets/img/2013/09/04/trent_baldurbragason_custom-e8040366c23d0710bdc28fd8827badab2110c15d-s800-c85.webp",
+      "email": "sdsd@live.com",
+      "friends": []
+    },
+    {
+      "modalTitle": "Add Blogger",
+      "id": "xq4J2FP",
+      "name": "Juan M",
+      "website": "ww.fef.com",
+      "picture_url": "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGVyc29uYXxlbnwwfHwwfHw%3D&w=1000&q=80",
+      "email": "valiasdasda@yahoo.com",
+      "friends": []
+    }
+  ]
+}
