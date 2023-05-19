@@ -1,92 +1,27 @@
-# Frontend Challenge
+# TestAxented
 
-## Description
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
-For this challenge, you will be creating a basic app for managing your favorite bloggers. You will be able to:
+## Development server
 
-- Add a new blogger with their information
-- View a list of your favorite bloggers
-- Associate bloggers to each other
-- Basic search functionality
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Requirements
+## Code scaffolding
 
-Your project should include the following:
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-- Your project must include a README with instructions:
-  - How to install dependencies
-  - How to run in development
+## Build
 
-## Features
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-Using your preferred technology, please implement the following features:
+## Running unit tests
 
-- As a user, I should be able to create a new blogger with the following information:
-  - Name
-  - Website
-  - Picture url
-  - Email
-- As a user, I should be able to see all the existing bloggers in a list
-  - Name
-  - Website
-  - Picture
-- As a user, I should be able to see a details page of a blogger with the following information
-  - Picture
-  - Name
-  - Website
-  - List of friends
-  - Email
-- As a user, I should be able to search bloggers by name or website
-- As a user, I should be able to add a friend to a blogger (blogger has many blogger friends)
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-The last two features don't need to work with a BE (API,algolig), it can be just a mock. For example, for the search feature you can display an autocomplete list or redirect the user to a results page with mock data.
+## Running end-to-end tests
 
-## Nice to have
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-Your application can include automated tests.
+## Further help
 
-## Persistance
-
-Data persistance is not required but highly encouraged. Feel free to use local storage, firebase or whatever you feel comfortable.
-
-## Mock data
-
-Whether you persist data or not, you may use this JSON to populate your initial app state.
-
-```js
-{
-  bloggers: [
-    {
-      id: "1",
-      name: "Juan Perez",
-      website: "juanperez.io",
-      picture_url: "https://placekitten.com/200/300",
-      email: "conact@juanperez.io",
-      friends: []
-    },
-    {
-      id: "2",
-      name: "Amano Pikamee",
-      website: "pikamee.io",
-      picture_url: "https://placekitten.com/200/300",
-      email: "contact@pikamee.io",
-      friends: ["1"]
-    },
-    {
-    id: "3",
-    name: "Tony Stark",
-    website: "tonystark.io",
-    picture_url: "https://placekitten.com/200/300",
-    email: "contact@tonystark.io",
-    friends: ["1", "2"] #list of member_id
-    }
-  ]
-}
-```
-
-## Delivery
-
-We want to see your application working and code:
-
-1. If you're using web technologies, please deploy your application to a free service like github pages. If you're creating a native app, please record your screen showing your application functionality.
-1. To upload your code please clone this repository and when you're ready please create a new PR from your personal branch to the main branch. Assign your PR to Rodolfo Islas.
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
