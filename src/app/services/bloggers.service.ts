@@ -10,6 +10,11 @@ export class BloggersService {
 
   constructor(private firestore: Firestore) { }
 
+  getBloggers(): Observable<Blogger[]> {
+    const bloggerRef = collection(this.firestore, 'bloggers');
+    return collectionData(bloggerRef, { idField: 'id' }) as Observable<Blogger[]>;
+  }
+
   addBlogger(blogger: Blogger) {
     const bloggerRef = collection(this.firestore, 'bloggers');
     return addDoc(bloggerRef, blogger);
@@ -18,11 +23,6 @@ export class BloggersService {
   updateBlogger(id: string, blogger: Blogger) {
     const bloggerRef = doc(this.firestore, `bloggers/${id}`);
     return updateDoc(bloggerRef, { ...blogger });
-  }
-
-  getBloggers(): Observable<Blogger[]> {
-    const bloggerRef = collection(this.firestore, 'bloggers');
-    return collectionData(bloggerRef, { idField: 'id' }) as Observable<Blogger[]>;
   }
 
   deleteBlogger(id: string) {

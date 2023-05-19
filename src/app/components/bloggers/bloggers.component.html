@@ -1,1 +1,72 @@
-<p>bloggers works!</p>
+<div class="form-group">
+  <input type="text" class="form-control" name="" id="" placeholder="Search by name or website..."
+    (keyup)="filterUpdate($event)">
+  <button class="btn btn-primary" (click)="addBlogger()">Add</button>
+</div>
+
+<div class="bloggers--grid">
+  <app-blogger class="mb-3" [blogger]="blogger" *ngFor="let blogger of bloggers" (showBlogger)="onShowDetail($event)"
+    (deleteBlogger)="onDeleteBlogger($event)"></app-blogger>
+</div>
+
+<div class="product-detail" [class.active]="showProductDetail">
+  <div>
+    <div class="card-image">
+      <img class="card-img"
+        [src]="myForm.get('picture_url')?.value ? myForm.get('picture_url')?.value : 'assets/images/avatar.png'" alt="">
+    </div>
+
+    <form [formGroup]="myForm" (ngSubmit)="myFormOnSubmit()">
+      <div class="mb-3">
+        <label for="UDname">Name</label>
+        <input type="text" id="UDname" formControlName="name" class="form-control" />
+        <div *ngIf="myForm?.get('name')?.invalid && myForm?.get('name')?.touched">
+          <p *ngIf="myForm?.get('name')?.hasError('required')">Name is required.</p>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="UDwebsite">Website</label>
+        <input type="text" id="UDwebsite" formControlName="website" class="form-control" />
+        <div *ngIf="myForm?.get('website')?.invalid && myForm?.get('website')?.touched">
+          <p *ngIf="myForm?.get('website')?.hasError('required')">Website is required.</p>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="UDpicture_url">Picture URL</label>
+        <input type="text" id="UDpicture_url" formControlName="picture_url" class="form-control" />
+        <div *ngIf="myForm?.get('picture_url')?.invalid && myForm?.get('picture_url')?.touched">
+          <p *ngIf="myForm?.get('picture_url')?.hasError('required')">Picture URL is required.</p>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="UDemail">E-mail</label>
+        <input type="text" id="UDemail" formControlName="email" class="form-control" />
+        <div *ngIf="myForm?.get('email')?.invalid && myForm?.get('email')?.touched">
+          <p *ngIf="myForm?.get('email')?.hasError('required')">Email is required.</p>
+          <p *ngIf="myForm?.get('email')?.hasError('email')">Invalid email format.</p>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="UDfriends">Friends</label>
+        <ng-select [items]="bloggers" id="UDcompany" [multiple]="true" [closeOnSelect]="false" [searchable]="false"
+          bindLabel="name" bindValue="id" formControlName="friends">
+          <ng-template ng-label-tmp let-item="item" let-clear="clear">
+            <span class="ng-value-label"> {{ item.name }}</span>
+            <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+          </ng-template>
+        </ng-select>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <button type="button" (click)="toggleProductDetail()" class="btn btn-light">Close</button>
+        <button type="submit" class="btn btn-success" rippleEffect>
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
