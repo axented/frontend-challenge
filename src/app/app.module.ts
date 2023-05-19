@@ -9,12 +9,14 @@ import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { NavComponent } from './components/nav/nav.component';
 import { BloggerComponent } from './components/blogger/blogger.component';
+import { BloggersComponent } from './components/bloggers/bloggers.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    BloggerComponent
+    BloggerComponent,
+    BloggersComponent
   ],
   imports: [
     BrowserModule,
