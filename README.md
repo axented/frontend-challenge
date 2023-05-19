@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
+## Installing
+Open Terminal/Command Prompt and navigate to your app folder and run the below command and wait until it finishes:
+Run `npm install --legacy-peer-deps` or `npm install`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
