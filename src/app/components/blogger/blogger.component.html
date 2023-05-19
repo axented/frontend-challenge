@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="image-content">
+      <span class="overlay"></span>
+      <div class="card-image">
+        <img class="card-img" [src]="blogger.picture_url" alt="">
+      </div>
+    </div>
+    <div class="card-content">
+      <h2 class="name">{{ blogger.name }}</h2>
+      <a href="">{{ blogger.website }}</a>
+      <p class="description">{{ blogger.email }}</p>
+      <button class="btn btn-dark ml-3" (click)="onShowDetail()">Details</button>
+      <a href="javascript:void(0)" ngbDropdownItem class="d-flex align-items-center mt-3" (click)="onDeleteBlogger()">
+        <i class="fa-regular fa-trash-can"></i></a>
+    </div>
+  </div>
