@@ -1,11 +1,8 @@
-export interface Blogger extends BloggerData {
+export interface Blogger {
   id: string;
-  friends: string[];
-}
-
-export interface BloggerData {
   name: string;
   website: string;
   picture_url: string;
   email: string;
+  friends: string[];
 }

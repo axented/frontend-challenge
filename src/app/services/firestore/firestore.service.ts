@@ -9,7 +9,7 @@ import {
   getDoc,
 } from '@angular/fire/firestore';
 
-import { Blogger, BloggerData } from 'src/app/models/blogger.model';
+import { Blogger } from 'src/app/models/blogger.model';
 
 @Injectable({
   providedIn: 'root',
@@ -19,15 +19,19 @@ export class FirestoreService {
 
   collectionName = 'bloggers';
 
-  public async createBlogger(blogger: BloggerData) {
+  public async createBlogger(blogger: Blogger) {
     const bloggerRef = collection(this.firestore, this.collectionName);
 
     let bloggerId = doc(bloggerRef).id;
 
-    return await setDoc(doc(this.firestore, this.collectionName, bloggerId), {
-      ...blogger,
-      id: bloggerId,
-    });
+    return (
+      await setDoc(doc(this.firestore, this.collectionName, bloggerId), {
+        ...blogger,
+        id: bloggerId,
+        friends: [],
+      }),
+      bloggerId
+    );
   }
 
   public async updateBlogger(blogger: Blogger) {
@@ -37,10 +41,8 @@ export class FirestoreService {
     );
   }
 
-  public async deleteBlogger(blogger: Blogger) {
-    return await deleteDoc(
-      doc(this.firestore, this.collectionName, blogger.id),
-    );
+  public async deleteBlogger(bloggerId: string) {
+    return await deleteDoc(doc(this.firestore, this.collectionName, bloggerId));
   }
 
   public async getBlogger(blogger: Blogger) {

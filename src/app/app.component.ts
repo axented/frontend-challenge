@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
 import { FirestoreService } from './services/firestore/firestore.service';
 
 import { Blogger } from './models/blogger.model';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -18,29 +18,55 @@ export class AppComponent implements OnInit {
 
   constructor(private firestoreService: FirestoreService) {}
 
+  bloggerFormGroup = new FormGroup({
+    name: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    website: new FormControl('', Validators.required),
+    picture_url: new FormControl('', Validators.required),
+  });
+
   async ngOnInit() {
-    await this.firestoreService.getBloggers().then((bloggersSnapshot: any) => {
-      bloggersSnapshot.forEach((bloggerData: any) => {
-        this.bloggers.push({
-          id: bloggerData.id,
-          ...bloggerData.data(),
-        });
-      });
-    });
+    this.loadBloggers();
+  }
+
+  async createBlogger() {
+    let newBlogger = {
+      id: '',
+      name: this.bloggerFormGroup.value.name as string,
+      website: this.bloggerFormGroup.value.website as string,
+      picture_url: this.bloggerFormGroup.value.picture_url as string,
+      email: this.bloggerFormGroup.value.email as string,
+      friends: [],
+    };
+
+    await this.firestoreService.createBlogger(newBlogger).then(
+      (value) => {
+        this.bloggerFormGroup.reset();
+
+        this.bloggers.push({ ...newBlogger, id: value });
+
+        console.log('Created blogger');
+      },
+      (error) => console.log(error),
+    );
   }
 
   selectCurrentBlogger(blogger: Blogger) {
     this.selectedBlogger = blogger;
   }
 
-  async createBlogger() {
-    await this.firestoreService
-      .createBlogger({
-        name: 'Tony Stark',
-        website: 'tonystark.io',
-        picture_url: 'https://placekitten.com/200/200',
-        email: 'contact@tonystark.io',
-      })
-      .then((value) => console.log(value));
+  deleteBlogger(bloggerId: string) {
+    this.bloggers = this.bloggers.filter((obj) => bloggerId !== obj.id);
+  }
+
+  async loadBloggers() {
+    await this.firestoreService.getBloggers().then((bloggersSnapshot: any) =>
+      bloggersSnapshot.forEach((bloggerData: any) => {
+        this.bloggers.push({
+          id: bloggerData.id,
+          ...bloggerData.data(),
+        });
+      }),
+    );
   }
 }

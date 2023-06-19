@@ -13,4 +13,10 @@
   </h3>
   <p>Website: {{ blogger.website }}</p>
   <p>Email: {{ blogger.email }}</p>
+
+  <div class="btn-toolbar">
+    <button type="button" class="btn btn-danger" (click)="deleteBlogger()">
+      Delete
+    </button>
+  </div>
 </div>

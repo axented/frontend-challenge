@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FirestoreService } from 'src/app/services/firestore/firestore.service';
+
 import { Blogger } from '../../models/blogger.model';
 
 @Component({
@@ -8,4 +10,23 @@ import { Blogger } from '../../models/blogger.model';
 })
 export class BloggerDetailComponent {
   @Input() blogger?: Blogger;
+
+  @Output() deleteEmitter = new EventEmitter<string>();
+
+  constructor(private firestoreService: FirestoreService) {}
+
+  deleteBlogger() {
+    if (this.blogger?.id) {
+      this.firestoreService.deleteBlogger(this.blogger?.id).then(
+        (_) => {
+          this.deleteEmitter.emit(this.blogger?.id);
+
+          this.blogger = undefined;
+
+          console.log('Deleted user');
+        },
+        (error) => console.log(error),
+      );
+    }
+  }
 }
