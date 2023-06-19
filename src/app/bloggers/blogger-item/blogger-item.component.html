@@ -1,7 +1,8 @@
-<div
+<a
   class="list-group-item list-group-item-action d-flex"
   *ngIf="blogger"
   (click)="emitBlogger()"
+  [routerLink]="['/bloggers', blogger.id]"
 >
   <img
     src="{{ blogger.picture_url }}"
@@ -13,4 +14,4 @@
     <p class="fw-bold mb-1">{{ blogger.name }}</p>
     <p class="text-muted mb-0">Website: {{ blogger.website }}</p>
   </div>
-</div>
+</a>

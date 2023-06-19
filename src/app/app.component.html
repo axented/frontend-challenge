@@ -1,11 +1,43 @@
 <div class="main">
   <h1>Bloggers</h1>
 
-  <div class="btn-toolbar">
-    <button type="button" class="btn btn-primary" (click)="showForm()">
-      Add Blogger
-    </button>
-  </div>
+  <form>
+    <div class="col-sm-5 mb-3 form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" class="form-control" required #nameInput />
+    </div>
+    <div class="col-sm-5 mb-3 from-group">
+      <label for="website">Website</label>
+      <input
+        type="text"
+        id="website"
+        class="form-control"
+        required
+        #websiteInput
+      />
+    </div>
+    <div class="col-sm-5 mb-3 from-group">
+      <label for="email">Email</label>
+      <input type="text" id="email" class="form-control" required #emailInput />
+    </div>
+    <div class="col-sm-5 mb-3 from-group">
+      <label for="picture_url">Image Url</label>
+      <input
+        type="text"
+        id="picture_url"
+        class="form-control"
+        required
+        #pictureUrlInput
+      />
+    </div>
+
+    <div class="btn-toolbar">
+      <button type="submit" class="btn btn-primary" (click)="createBlogger()">
+        Add Blogger
+      </button>
+      <button type="button" class="btn btn-danger">Delete</button>
+    </div>
+  </form>
 
   <hr />
 
