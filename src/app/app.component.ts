@@ -16,6 +16,8 @@ export class AppComponent implements OnInit {
 
   bloggers: Blogger[] = [];
 
+  showForm = false;
+
   constructor(private firestoreService: FirestoreService) {}
 
   bloggerFormGroup = new FormGroup({
@@ -32,11 +34,13 @@ export class AppComponent implements OnInit {
   async createBlogger() {
     let newBlogger = {
       id: '',
-      name: this.bloggerFormGroup.value.name as string,
-      website: this.bloggerFormGroup.value.website as string,
-      picture_url: this.bloggerFormGroup.value.picture_url as string,
-      email: this.bloggerFormGroup.value.email as string,
       friends: [],
+      ...(this.bloggerFormGroup.value as {
+        name: string;
+        website: string;
+        email: string;
+        picture_url: string;
+      }),
     };
 
     await this.firestoreService.createBlogger(newBlogger).then(
@@ -44,6 +48,8 @@ export class AppComponent implements OnInit {
         this.bloggerFormGroup.reset();
 
         this.bloggers.push({ ...newBlogger, id: value });
+
+        this.showForm = false;
 
         console.log('Created blogger');
       },
@@ -57,6 +63,8 @@ export class AppComponent implements OnInit {
 
   deleteBlogger(bloggerId: string) {
     this.bloggers = this.bloggers.filter((obj) => bloggerId !== obj.id);
+
+    this.selectedBlogger = undefined;
   }
 
   async loadBloggers() {

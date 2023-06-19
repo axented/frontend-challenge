@@ -10,6 +10,7 @@ import { Blogger } from '../../models/blogger.model';
 })
 export class BloggerDetailComponent {
   @Input() blogger?: Blogger;
+  @Input() bloggers?: Blogger[];
 
   @Output() deleteEmitter = new EventEmitter<string>();
 
@@ -20,8 +21,6 @@ export class BloggerDetailComponent {
       this.firestoreService.deleteBlogger(this.blogger?.id).then(
         (_) => {
           this.deleteEmitter.emit(this.blogger?.id);
-
-          this.blogger = undefined;
 
           console.log('Deleted user');
         },

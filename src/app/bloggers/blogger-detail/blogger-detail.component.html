@@ -14,9 +14,14 @@
   <p>Website: {{ blogger.website }}</p>
   <p>Email: {{ blogger.email }}</p>
 
+  <p>Friends:</p>
+  <ul>
+    <li *ngFor="let friend of blogger.friends">{{ friend }}</li>
+  </ul>
+
   <div class="btn-toolbar">
     <button type="button" class="btn btn-danger" (click)="deleteBlogger()">
-      Delete
+      Delete blogger
     </button>
   </div>
 </div>
