@@ -1,0 +1,27 @@
+<div class="main">
+  <h1>Bloggers</h1>
+
+  <div class="btn-toolbar">
+    <button type="button" class="btn btn-primary" (click)="showForm()">
+      Add Blogger
+    </button>
+  </div>
+
+  <hr />
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="list-group">
+        <app-blogger-item
+          *ngFor="let bloggerInfo of bloggers"
+          [blogger]="bloggerInfo"
+          (bloggerEmitter)="selectCurrentBlogger($event)"
+        />
+      </div>
+    </div>
+
+    <div class="col-md-7">
+      <app-blogger-detail [blogger]="selectedBlogger" />
+    </div>
+  </div>
+</div>
