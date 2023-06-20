@@ -1,0 +1,16 @@
+<a
+  class="list-group-item list-group-item-action d-flex"
+  *ngIf="blogger"
+  (click)="emitBlogger()"
+>
+  <img
+    src="{{ blogger.picture_url }}"
+    alt="{{ blogger.name }}"
+    class="img-responsive rounded-circle"
+  />
+
+  <div class="ms-3">
+    <p class="fw-bold mb-1">{{ blogger.name }}</p>
+    <p class="text-muted mb-0">Website: {{ blogger.website }}</p>
+  </div>
+</a>

@@ -1,0 +1,84 @@
+<div class="main">
+  <h1>Bloggers</h1>
+
+  <div class="d-grid gap-2">
+    <button
+      type="button"
+      class="btn btn-info mt-3 btn-block"
+      (click)="showForm = !showForm"
+    >
+      {{ showForm ? 'Cancel' : 'Create blogger' }}
+    </button>
+  </div>
+
+  <form
+    [formGroup]="bloggerFormGroup"
+    (ngSubmit)="createBlogger()"
+    *ngIf="showForm"
+  >
+    <h4 class="mt-3">Create blogger</h4>
+
+    <div class="mb-3 form-group">
+      <label for="name">Name</label>
+      <input type="text" formControlName="name" class="form-control" />
+    </div>
+    <div class="mb-3 from-group">
+      <label for="website">Website</label>
+      <input type="text" formControlName="website" class="form-control" />
+    </div>
+    <div class="mb-3 from-group">
+      <label for="email">Email</label>
+      <input type="text" formControlName="email" class="form-control" />
+    </div>
+    <div class="mb-3 from-group">
+      <label for="picture_url">Picture Url</label>
+      <input type="text" formControlName="picture_url" class="form-control" />
+    </div>
+
+    <div class="btn-toolbar">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="bloggerFormGroup.invalid"
+      >
+        Add Blogger
+      </button>
+    </div>
+  </form>
+
+  <div class="row mt-4" *ngIf="!showForm">
+    <div class="col-md-5">
+      <div class="w-100">
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search blogger"
+            [(ngModel)]="searchStr"
+          />
+        </div>
+      </div>
+
+      <div class="list-group">
+        <app-blogger-item
+          *ngFor="
+            let bloggerInfo of bloggers
+              | filter : searchStr : ['name', 'website'];
+            let indexOfelement = index
+          "
+          [blogger]="bloggerInfo"
+          (bloggerEmitter)="selectCurrentBlogger($event, indexOfelement)"
+        />
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <app-blogger-detail
+        [blogger]="selectedBlogger"
+        [bloggers]="bloggers"
+        (deleteEmitter)="deleteBlogger($event)"
+        (newFriendsEmitter)="updateBloggerFriends($event)"
+      />
+    </div>
+  </div>
+</div>
