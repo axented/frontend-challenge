@@ -7,6 +7,7 @@ import {
   setDoc,
   deleteDoc,
   getDoc,
+  updateDoc,
 } from '@angular/fire/firestore';
 
 import { Blogger } from 'src/app/models/blogger.model';
@@ -35,9 +36,9 @@ export class FirestoreService {
   }
 
   public async updateBlogger(blogger: Blogger) {
-    return await setDoc(
+    return await updateDoc(
       doc(this.firestore, this.collectionName, blogger.id),
-      blogger,
+      blogger as any,
     );
   }
 

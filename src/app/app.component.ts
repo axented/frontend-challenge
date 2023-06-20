@@ -13,12 +13,11 @@ export class AppComponent implements OnInit {
   title = 'bloggers';
 
   selectedBlogger?: Blogger;
+  selectedBloggerIndex?: number;
 
   bloggers: Blogger[] = [];
 
   showForm = false;
-
-  constructor(private firestoreService: FirestoreService) {}
 
   bloggerFormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -26,6 +25,8 @@ export class AppComponent implements OnInit {
     website: new FormControl('', Validators.required),
     picture_url: new FormControl('', Validators.required),
   });
+
+  constructor(private firestoreService: FirestoreService) {}
 
   async ngOnInit() {
     this.loadBloggers();
@@ -57,14 +58,31 @@ export class AppComponent implements OnInit {
     );
   }
 
-  selectCurrentBlogger(blogger: Blogger) {
+  selectCurrentBlogger(blogger: Blogger, index: number) {
     this.selectedBlogger = blogger;
+    this.selectedBloggerIndex = index;
   }
 
   deleteBlogger(bloggerId: string) {
     this.bloggers = this.bloggers.filter((obj) => bloggerId !== obj.id);
 
     this.selectedBlogger = undefined;
+    this.selectedBloggerIndex = undefined;
+  }
+
+  async updateBloggerFriends(newFriends: string[]) {
+    if (this.selectedBloggerIndex !== undefined)
+      this.bloggers[this.selectedBloggerIndex].friends = newFriends;
+
+    await this.firestoreService
+      .updateBlogger(this.bloggers[this.selectedBloggerIndex as number])
+      .then(
+        (_) => {
+          console.log(newFriends);
+          console.log('Updated friends');
+        },
+        (error) => console.log(error),
+      );
   }
 
   async loadBloggers() {

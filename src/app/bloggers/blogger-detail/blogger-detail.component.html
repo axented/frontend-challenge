@@ -14,13 +14,27 @@
   <p>Website: {{ blogger.website }}</p>
   <p>Email: {{ blogger.email }}</p>
 
-  <p>Friends:</p>
-  <ul>
-    <li *ngFor="let friend of blogger.friends">{{ friend }}</li>
-  </ul>
+  <p class="mb-0">Friends:</p>
+
+  <form *ngIf="bloggers">
+    <div *ngFor="let bloggerItem of bloggers">
+      <div class="form-check mt-1" *ngIf="bloggerItem.id !== blogger.id">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="{{ bloggerItem.id }}"
+          [checked]="blogger.friends.includes(bloggerItem.id)"
+          (change)="updateFriends($event)"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          {{ bloggerItem.name }}
+        </label>
+      </div>
+    </div>
+  </form>
 
   <div class="btn-toolbar">
-    <button type="button" class="btn btn-danger" (click)="deleteBlogger()">
+    <button type="button" class="btn btn-danger mt-3" (click)="deleteBlogger()">
       Delete blogger
     </button>
   </div>
