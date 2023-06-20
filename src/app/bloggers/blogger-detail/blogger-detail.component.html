@@ -11,10 +11,10 @@
   <h3>
     {{ blogger.name }}
   </h3>
-  <p>Website: {{ blogger.website }}</p>
-  <p>Email: {{ blogger.email }}</p>
+  <p><strong>Website:</strong> {{ blogger.website }}</p>
+  <p><strong>Email:</strong> {{ blogger.email }}</p>
 
-  <p class="mb-0">Friends:</p>
+  <p class="mb-0"><strong>Friends:</strong></p>
 
   <form *ngIf="bloggers">
     <div *ngFor="let bloggerItem of bloggers">

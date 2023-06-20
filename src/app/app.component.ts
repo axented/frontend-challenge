@@ -19,6 +19,8 @@ export class AppComponent implements OnInit {
 
   showForm = false;
 
+  searchStr = '';
+
   bloggerFormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),

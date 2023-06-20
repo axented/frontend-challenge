@@ -47,17 +47,32 @@
   </form>
 
   <div class="row mt-4" *ngIf="!showForm">
-    <div class="col-md-4">
+    <div class="col-md-5">
+      <div class="w-100">
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search blogger"
+            [(ngModel)]="searchStr"
+          />
+        </div>
+      </div>
+
       <div class="list-group">
         <app-blogger-item
-          *ngFor="let bloggerInfo of bloggers; let indexOfelement = index"
+          *ngFor="
+            let bloggerInfo of bloggers
+              | filter : searchStr : ['name', 'website'];
+            let indexOfelement = index
+          "
           [blogger]="bloggerInfo"
           (bloggerEmitter)="selectCurrentBlogger($event, indexOfelement)"
         />
       </div>
     </div>
 
-    <div class="col-md-7">
+    <div class="col-md-6">
       <app-blogger-detail
         [blogger]="selectedBlogger"
         [bloggers]="bloggers"

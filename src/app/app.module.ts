@@ -9,6 +9,7 @@ import { BloggerItemComponent } from './bloggers/blogger-item/blogger-item.compo
 import { BloggerDetailComponent } from './bloggers/blogger-detail/blogger-detail.component';
 import { BloggersListComponent } from './bloggers/bloggers-list/bloggers-list.component';
 import { environment } from '../environments/environment';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { environment } from '../environments/environment';
     BloggerItemComponent,
     BloggerDetailComponent,
     BloggersListComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
