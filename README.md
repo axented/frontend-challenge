@@ -1,3 +1,21 @@
+# Bloggers
+
+The web app is hosted in GitHub pages: [Bloggers Web App](https://kevintmtz.github.io/axented-frontend-challenge/)
+
+<br>
+
+# Install Dependencies
+
+Run `npm install` inside this project folder to install all dependencies.
+
+<br>
+
+# Run in development
+
+Run `ng serve` for the development server and navigate to `http://localhost:4200/`.
+
+<br>
+
 # Frontend Challenge
 
 ## Description
