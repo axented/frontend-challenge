@@ -1,0 +1,8 @@
+<div *ngIf="blogger" class="blogger-details">
+    <img [src]="blogger.picture_url" [alt]="blogger.name">
+    <h2>{{ blogger.name }}</h2>
+    <p>Website: {{ blogger.website }}</p>
+    <p>Email: {{ blogger.email }}</p>
+    <p>Friends: {{ blogger.friends.join(', ') }}</p>
+    <button *ngFor="let friendId of blogger.friends" (click)="addFriend(friendId)">Add Friend</button>
+  </div>

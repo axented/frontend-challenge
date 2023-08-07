@@ -1,0 +1,22 @@
+<h1>Favorite Bloggers</h1>
+<table class="blogger-list">
+  <tr *ngFor="let blogger of bloggers" class="blogger-item">
+    <td>
+      <img [src]="blogger.picture_url" [alt]="blogger.name">
+    </td>
+    <td class="blogger-details">
+      <h2>{{ blogger.name }}</h2>
+      <p>Website: {{ blogger.website }}</p>
+      <button (click)="navigateToDetails(blogger.id)">View Details</button> <!-- Add button here -->
+    </td>
+  </tr>
+</table>
+
+<h2>Add New Blogger</h2>
+<form (ngSubmit)="addBlogger()">
+  <label>Name: <input type="text" [(ngModel)]="newBlogger.name" name="name"></label><br>
+  <label>Website: <input type="text" [(ngModel)]="newBlogger.website" name="website"></label><br>
+  <label>Picture URL: <input type="text" [(ngModel)]="newBlogger.picture_url" name="picture_url"></label><br>
+  <label>Email: <input type="email" [(ngModel)]="newBlogger.email" name="email"></label><br>
+  <button type="submit">Add Blogger</button>
+</form>
