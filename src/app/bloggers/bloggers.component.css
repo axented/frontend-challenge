@@ -1,0 +1,25 @@
+/* Apply table styles */
+.blogger-list {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .blogger-item {
+    display: table-row;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .blogger-item img {
+    display: table-cell;
+    padding: 10px;
+  }
+  
+  .blogger-details {
+    display: table-cell;
+    padding: 10px;
+  }
+  
+  .blogger-details h2 {
+    margin-top: 0;
+  }
