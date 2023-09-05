@@ -1,0 +1,306 @@
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .icono-grande {
+    font-size: 24px;
+  }
+
+  .card-container .card i {
+    vertical-align: middle;
+  }
+
+  .custom-table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    text-align: center;
+  }
+
+  .custom-table th,
+  .custom-table td {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+  }
+
+  .custom-table th {
+    background-color: #f2f2f2; /* Color de fondo para encabezados */
+  }
+
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    font-weight: 600;
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+    border-radius: 50%;
+    background-color: white;
+    padding: 5px;
+  }
+
+  .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .card {
+    all: unset;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 200px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+
+  .circle-link {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    margin: 8px;
+    background-color: white;
+    border: 1px solid #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: 1s ease-out;
+  }
+
+  .circle-link:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #333; /* Cambia el color de fondo según tus preferencias */
+  color: white; /* Cambia el color del texto según tus preferencias */
+  padding: 10px; /* Añade espacio alrededor del contenido del footer si es necesario */
+}
+
+
+</style>
+
+<div class="toolbar" role="banner">
+  <img
+    width="40"
+    alt="Angular Logo"
+    src="/assets/images/bloggers_icon.png"
+  />
+  <span>Bienvenido</span>
+    <div class="spacer"></div>
+</div>
+
+<div class="content" role="main">
+
+  <h2>Seleccione una opción</h2>
+
+  <input type="hidden" #selection>
+
+  <div class="card-container">
+    <button class="card card-small" (click)="selection.value = 'nuevo'" tabindex="0" data-toggle="tooltip" title="Sirve para añadir un nuevo blogger">
+      <i class="bi bi-plus icono-grande"></i>
+      <span>Nuevo Blogger</span>
+    </button>
+
+    <button class="card card-small" (click)="selection.value = 'lista'" tabindex="0" data-toggle="tooltip" title="Sirve para visualizar una lista de los bloggers">
+      <i class="bi bi-list icono-grande"></i>
+      <span>Lista de Bloggers</span>
+    </button>
+
+    <button class="card card-small" (click)="selection.value = 'info'" tabindex="0" data-toggle="tooltip" title="Sirve para visualizar la informacion por blogger">
+      <i class="bi bi-person icono-grande"></i>
+      <span>Info por Bloggers</span>
+    </button>
+  </div>
+
+  <div [ngSwitch]="selection.value" class="col-12 ">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mx-auto">
+          <form *ngSwitchDefault (ngSubmit)="agregarBlogger()" #bloggerForm="ngForm">
+            <div class="row">
+              <div class="form-group col-md-6 mb-3">
+                <label>Nombre</label>
+                <input type="text" class="form-control" id="name" data-toggle="tooltip" title="Agregue el nombre del blogger" [(ngModel)]="newBlogger.name" name="name" placeholder="Nombre">
+              </div>
+              <div class="form-group col-md-6 mb-3">
+                <label for="inputEmail4">Email</label>
+                <input type="email" class="form-control" id="email" [(ngModel)]="newBlogger.email" data-toggle="tooltip" title="Agregue el correo del blogger" name="email" placeholder="Email">
+              </div>
+              <div class="form-group col-md-6  mb-3">
+                <label>Sitio Web</label>
+                <input type="text" class="form-control" id="webSite" [(ngModel)]="newBlogger.website" data-toggle="tooltip" title="Agregue el Web Site del blogger" name="webSite" placeholder="Sitio Web">
+              </div>
+              <div class="form-group col-md-6 mb-3">
+                <label>URL de imagen</label>
+                <input type="text" class="form-control" id="picture_url" data-toggle="tooltip" title="Agregue la url de la imagen del blogger" [(ngModel)]="newBlogger.picture_url" name="picture_url" placeholder="URL Imagen">
+              </div>
+              <div class="form-group col-md-6 mb-3">
+                <label>Amigos</label>
+                <select class="form-control" id="friends" [(ngModel)]="selectedFriends" name="friends" multiple>
+                  <option *ngFor="let blogger of bloggersData" [ngValue]="blogger.id">{{ blogger.name }}</option>
+                </select>
+              </div>
+            </div>
+              <div class="row col-md-2 mx-auto">
+                <button type="submit" class="btn btn-dark">Agregar</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <table *ngSwitchCase="'lista'" class="custom-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Sitio Web</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let blogger of bloggersData; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ blogger.name }}</td>
+            <td>{{ blogger.website }}</td>
+            <td>{{ blogger.email }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-12 mx-auto">
+            <form *ngSwitchCase="'info'">
+              <div class="form-group col-12 mb-4">
+                <label for="bloggerSelect">Selecciona un Blogger:</label>
+                <select class="form-control" id="bloggerSelect" [(ngModel)]="selectedBlogger" name="bloggerSelect" (ngModelChange)="updateSelectedBlogger($event.id)">
+                  <option *ngFor="let blogger of bloggersData" [ngValue]="blogger">{{ blogger.name }} ({{ blogger.website }})</option>
+                </select>
+              </div>
+              <div class="row">
+                <div class="form-group col-6 mb-4">
+                  <div class="rounded-circle border border-primary p-3" style="width: 300px; height: 300px;">
+                    <img
+                      alt="Angular Logo"
+                      [src]="selectedBlogger?.picture_url ? selectedBlogger?.picture_url : '/assets/images/bloggers_icon.png'"
+                      class="img-fluid rounded-circle"
+                      style="width: 100%; height: 100%;"
+                    >
+                  </div>
+                </div>
+                <div class="col-6 mb-4">
+                  <div class="d-flex flex-column">
+                    <label class="mb-4"></label>
+                  </div>
+                  <div class="d-flex flex-column">
+                    <label class="mb-4">Nombre: <span>{{ selectedBlogger?.name }}</span></label>
+                  </div>
+                  <div class="d-flex flex-column">
+                    <label class="mb-4">Email: <span>{{ selectedBlogger?.email }}</span></label>
+                  </div>
+                  <div class="d-flex flex-column">
+                    <label class="mb-4">Sitio Web: <span>{{ selectedBlogger?.website }}</span></label>
+                  </div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let friendId of selectedBlogger?.friends ; let i = index">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ getFriendName(friendId) }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="d-flex flex-column">
+      <label>Desarrollador: <span>{{ developer?.name ?? developer?.name || 'Luis Moreno'}}</span></label>
+      <label>Correo: <span>{{ developer?.email ?? developer?.email || 'luiszelph.morenoruiz@gmail.com'}}</span></label>
+      <label>Lenguajes más trabajados: <span>{{ developer?.codeLanguajes ?? developer?.codeLanguajes || "C#, Javascript, HTML, CSS, SQL"}}</span></label>
+    </div>
+  </footer>
+</div>
