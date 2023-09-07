@@ -1,0 +1,83 @@
+<div class="row justify-content-center mt-5">
+  <div class="col-md-10">
+    <mat-card>
+      <div class="card-body m-3">
+
+        <div class="row">
+
+          <div class="col-md-3 text-center">
+            <!--Cancel-->
+            <button mat-raised-button class="btn btn-primary" (click)="back()">
+              <span>Back</span>
+            </button>
+
+          </div>
+
+          <div class="col-md-6">
+            <div class="header text-center">
+              <h5>
+                Details And Friends
+                <br />
+                <h6> <small class="text-center">View blogger and add friends.</small></h6>
+              </h5>
+            </div>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row mt-4">
+          <div class="col-md-12 d-flex justify-content-center">
+            <form [formGroup]="formBloggerGroup" style="width: 50%;">
+
+              <div class="col-md-12 d-flex justify-content-center mb-3">
+                <div class="img-container"> <img aria-hidden [src]="BloggerSelected.picture_url">
+                </div>
+              </div>
+
+              <div class="col-md-12 d-flex flex-column">
+                <mat-form-field appearance="outline">
+                  <mat-label>Name</mat-label>
+                  <input type="text" name="name" matInput formControlName="nameControl" readonly>
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-12 d-flex flex-column">
+                <mat-form-field appearance="outline">
+                  <mat-label>Website</mat-label>
+                  <input type="text" name="website" matInput formControlName="websiteControl" readonly>
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-12 d-flex flex-column">
+                <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input type="text" name="email" matInput formControlName="emailControl" readonly>
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-12 d-flex flex-column">
+                <mat-form-field>
+                  <mat-label>Friends</mat-label>
+                  <mat-select (selectionChange)="onChange($event)" multiple formControlName="friendControl">
+                    <mat-option *ngFor="let potential of potentialFriends"
+                      [value]="potential.id">{{potential.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+
+              <div class="col-md-12 d-flex flex-row-reverse">
+                <button mat-raised-button class="btn btn-success" (click)="onSave()">
+                  <span>Save</span>
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </mat-card>
+  </div>
+</div>

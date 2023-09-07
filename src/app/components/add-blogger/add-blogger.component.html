@@ -1,0 +1,74 @@
+<div class="row justify-content-center mt-5">
+  <div class="col-md-10">
+    <mat-card>
+      <div class="card-body m-3">
+
+        <div class="row">
+
+          <div class="col-md-3 text-center">
+            <!--Cancel-->
+            <button mat-raised-button class="btn btn-danger" (click)="cancel()">
+              <span>Cancel</span>
+            </button>
+
+          </div>
+
+          <div class="col-md-6">
+            <div class="header text-center">
+              <h5>
+                Add A New Blogger
+                <br />
+                <h6> <small class="text-center">Please fill in the form.</small></h6>
+              </h5>
+            </div>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row mt-4">
+          <div class="col-md-12 d-flex justify-content-center">
+            <form [formGroup]="formBloggerGroup" style="width: 50%;">
+
+              <div class="col-md-12 d-flex flex-column">
+                <mat-form-field appearance="outline">
+                  <mat-label>Name</mat-label>
+                  <input type="text" name="name" matInput formControlName="nameControl">
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-12 d-flex flex-column">
+                <mat-form-field appearance="outline">
+                  <mat-label>Website</mat-label>
+                  <input type="text" name="website" matInput formControlName="websiteControl">
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-12 d-flex flex-column">
+                <mat-form-field appearance="outline">
+                  <mat-label>Picture Url</mat-label>
+                  <input type="text" name="pictureurl" matInput formControlName="pictureUrlControl">
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-12 d-flex flex-column">
+                <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input type="text" name="email" matInput formControlName="emailControl">
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-12 d-flex flex-row-reverse">
+                <button mat-raised-button class="btn btn-success" (click)="onSave()">
+                  <span>Save</span>
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </mat-card>
+  </div>
+</div>
